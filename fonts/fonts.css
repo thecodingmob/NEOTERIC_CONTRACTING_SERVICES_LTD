@@ -1,0 +1,27 @@
+@font-face {
+  font-family: karla;
+  src: url("./Karla-VariableFont_wght.ttf");
+}
+
+@font-face {
+  font-family: roboto;
+  src: url("./Roboto-VariableFont_wdth\,wght.ttf");
+}
+
+@font-face {
+  font-family: wix;
+  src: url("./WixMadeforText-VariableFont_wght.ttf");
+}
+
+@font-face {
+  font-family: stack;
+  src: url("./StackSansNotch-VariableFont_wght.ttf");
+}
+
+:root {
+  /* fonts  */
+  --ff-karla: karla, sans-serif;
+  --ff-roboto: roboto, sans-serif;
+  --ff-wix: wix, sans-serif;
+  --ff-stack: stack, sans-serif;
+}
