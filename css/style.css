@@ -60,7 +60,7 @@ h4 {
 }
 
 h1 {
-  font-size: clamp(1rem, 8vw + 1rem, 5.5rem);
+  font-size: clamp(1rem, 7vw + 1rem, 5.5rem);
 }
 
 h2 {
@@ -239,6 +239,12 @@ section {
 .hero {
   margin-block-start: 2rem;
   text-align: center;
+}
+
+.sub-text {
+  @media (width >= 60em) {
+    padding-inline: 10em;
+  }
 }
 
 .hero .wrapper {
