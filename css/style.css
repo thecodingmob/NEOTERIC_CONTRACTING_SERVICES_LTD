@@ -55,7 +55,7 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: var(--ff-stack);
+  font-family: var(--ff-wix);
   font-weight: 900;
 }
 
@@ -186,13 +186,15 @@ header nav a:hover {
     height: 0;
 
     position: absolute;
-    top: 4em;
-    left: 5%;
-    width: 90%;
+    top: 3.1em;
+    left: 0;
+    width: 100%;
     background-color: var(--white);
-    border-radius: 6px;
+    border-radius: 0 0 6px 6px;
     overflow: hidden;
     z-index: 999;
+
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
 
     box-shadow: 0px 20px 30px -10px rgba(0, 0, 0, 0.2);
     transition:
@@ -233,9 +235,6 @@ section {
 }
 
 /* hero section start  */
-.hero-eyebrow {
-  display: none;
-}
 
 .hero {
   margin-block-start: 2rem;
@@ -275,6 +274,8 @@ section {
   background-size: cover;
   color: var(--white);
   z-index: 1;
+
+  font-weight: 600;
 }
 
 .about::before {
@@ -343,12 +344,13 @@ section {
 /* goal section start  */
 
 .goal {
-  background-color: var(--clr-deep-navy);
-  color: var(--white);
+  background-color: var(--white);
+  color: var(--clr-deep-navy);
   text-align: center;
+  font-weight: 700;
 }
 .goal h2 {
-  color: var(--clr-light-cyan);
+  color: var(--clr-dark-blue);
 }
 
 /* goal section end  */
@@ -527,6 +529,20 @@ footer input[type="submit"] {
   margin-block: 3rem;
 }
 
+.hero-eyebrow {
+  background-color: var(--clr-deep-navy);
+  color: var(--white);
+  display: inline-block;
+  padding-block: 0.8rem;
+  padding-inline: 0.8rem;
+  border-radius: 50vw;
+  font-weight: 700;
+  margin-block-end: 0;
+  font-size: 18px;
+
+  border: 1px solid var(--clr-deep-navy);
+}
+
 .columns {
   display: grid;
   gap: 45px;
@@ -537,20 +553,6 @@ footer input[type="submit"] {
 /* hero media queries  */
 
 @media (width >= 48em) {
-  .hero-eyebrow {
-    background-color: var(--clr-deep-navy);
-    color: var(--white);
-    display: inline-block;
-    padding-block: 0.4rem;
-    padding-inline: 0.4rem;
-    border-radius: 50vw;
-    font-weight: 600;
-    margin-block-end: 0;
-    font-size: 16px;
-
-    border: 1px solid var(--clr-deep-navy);
-  }
-
   .hero-cta {
     flex-direction: row;
   }
