@@ -46,6 +46,7 @@ body {
   /* background-size: 20px 20px; */
 
   line-height: 1.2;
+  text-wrap: balance;
   font-size: 20px;
   height: 100%;
   color: var(--white);
@@ -100,8 +101,9 @@ header {
   box-shadow: 0px 8px 20px -10px rgba(0, 0, 0, 0.25);
 }
 
-header img {
-  width: 80px;
+header .logo {
+  width: 40px;
+  aspect-ratio: 1;
 }
 
 header nav {
@@ -178,6 +180,7 @@ header nav a:hover {
 
   header li:nth-child(5) {
     border: none;
+    /* background-color: var(--clr-deep-navy); */
   }
 
   #navLinks {
@@ -185,8 +188,8 @@ header nav a:hover {
     visibility: hidden;
     height: 0;
 
-    position: absolute;
-    top: 3.1em;
+    position: fixed;
+    top: 2.42em;
     left: 0;
     width: 100%;
     background-color: var(--white);
@@ -198,9 +201,9 @@ header nav a:hover {
 
     box-shadow: 0px 20px 30px -10px rgba(0, 0, 0, 0.2);
     transition:
-      opacity 0.2s,
-      height 0.21s,
-      visibility 0.23s;
+      opacity 0.1s,
+      height 0.1s,
+      visibility 0.1s;
   }
 
   #navLinks.open {
@@ -217,7 +220,7 @@ header nav a:hover {
     cursor: pointer;
   }
 }
-@media (max-width: 900px) {
+@media (width <= 998px) {
   header {
     width: 80%;
   }
@@ -365,6 +368,26 @@ section {
 
 /* goal section end  */
 
+/* why us start */
+
+.why-us-column {
+  display: grid;
+  gap: 2rem;
+
+  grid-template-columns: 1fr;
+
+  @media (width >= 48em) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.why-us-card {
+  padding: 2rem;
+  border-radius: 12px;
+
+  background: var(--clr-deep-navy);
+}
+/* why us end  */
+
 /* contact section start  */
 
 .contact-card {
@@ -392,6 +415,64 @@ section {
 .contact-card a:hover {
   background: var(--white);
   color: var(--clr-dark-blue);
+}
+
+/* testimonial section start  */
+.testimonials-grid {
+  display: grid;
+  gap: 1rem;
+  grid-auto-flow: column;
+  grid-auto-columns: 300px;
+  overflow-x: scroll;
+
+  scroll-snap-type: x mandatory;
+  padding-top: 3rem;
+  padding-inline: 1rem;
+
+  /* select the children */
+  > * {
+    scroll-snap-align: center;
+    animation: scroller linear both;
+    animation-timeline: view(x);
+  }
+}
+
+@keyframes scroller {
+  0%,
+  100% {
+    opacity: 0.5;
+    scale: 0.5;
+  }
+
+  35%,
+  65% {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+.testimonials-grid::-webkit-scrollbar {
+  display: none;
+}
+
+.testimonials {
+  border-radius: 12px;
+  padding: 1rem;
+
+  background: var(--clr-deep-navy);
+
+  display: grid;
+  align-content: center;
+  justify-items: center;
+}
+
+.testimonials > * {
+  margin-block: 1rem;
+}
+
+.testimonials strong {
+  margin-inline-start: 1rem;
+  font-style: italic;
 }
 
 /* footer start  */
@@ -490,6 +571,84 @@ footer input[type="submit"] {
   max-inline-size: 900px;
   margin-inline: auto;
   padding: 18px;
+}
+
+.founder-info-details {
+  margin-block: 0.7rem;
+  display: grid;
+  place-items: center;
+
+  img {
+    border-radius: 12px 12px 0 0;
+    width: min(250px, 100%);
+  }
+}
+
+.ol-stuffs {
+  padding-inline: 2rem;
+  padding-block: 2rem;
+  background: var(--clr-deep-navy);
+  border-radius: 12px;
+  corner-shape: notch;
+  border: 2px solid var(--clr-vivid-blue);
+}
+
+.sustainability-plans,
+.partnership-strats {
+  display: grid;
+  /* gap: 30px; */
+  place-items: center;
+  /* padding-inline-start: 1rem; */
+
+  li {
+    margin-block-end: 1rem;
+  }
+
+  & > li::marker {
+    font-size: 2rem;
+    color: var(--clr-vivid-blue);
+    font-weight: 700;
+  }
+
+  li:last-child {
+    margin-block-end: 0;
+  }
+}
+
+.founder-info {
+  background: var(--clr-deep-navy);
+  color: var(--white);
+  h2 {
+    padding-block-end: 2rem;
+  }
+}
+
+.founder-info-name {
+  margin-block-end: 2rem;
+  background-color: var(--clr-dark-blue);
+  padding-block: 1rem;
+  color: var(--white);
+  border-radius: 0 0 12px 12px;
+  padding-inline: 1rem;
+  font-weight: 700;
+  width: min(250px, 100%);
+}
+
+.company-portfolio {
+  margin-block-start: 1rem;
+}
+
+.column {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+
+  place-items: center;
+
+  @media (width < 48em) {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
 }
 
 .btn {
